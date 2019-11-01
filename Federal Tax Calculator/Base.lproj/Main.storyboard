@@ -74,6 +74,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="annualIncome" destination="IT1-dx-eE8" id="Buc-xq-moe"/>
+                        <outlet property="name" destination="Lc0-Wy-46i" id="TCx-QA-CdG"/>
+                        <outlet property="taxOwing" destination="0jd-W5-eZG" id="Ye4-ZX-1A3"/>
+                        <outlet property="taxRate" destination="imd-PJ-CPQ" id="FMr-ZH-QL5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
