@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var taxRate: UILabel!
     @IBOutlet weak var taxOwing: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setp after loading the view.
     }
-    
     
     
     @IBAction func calculateTaxOwingAndTaxRate(_ sender: Any) {
@@ -28,9 +28,11 @@ class ViewController: UIViewController {
     func calculate(){
         //get user input
         guard let userName = name.text else {
+            taxOwing.text = "Please enter your first name"
             return
         }
         guard let annualIncomeText = annualIncome.text else {
+            taxOwing.text = "Please enter your annual income in dollars"
             return
         }
                   
