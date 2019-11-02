@@ -22,30 +22,32 @@ class ViewController: UIViewController {
     
     
     @IBAction func calculateTaxOwingAndTaxRate(_ sender: Any) {
+        reset()
         calculate()
     }
     
     func calculate(){
         
-    //get user input
-    guard let userName = name.text else {
-        taxOwing.text = "Please enter your first name"
-        return
-    }
-    guard let annualIncomeText = annualIncome.text else {
-        taxOwing.text = "Please enter your annual income in dollars"
-        return
-    }
+        //get user input
+        guard let userName = name.text else {
+            taxOwing.text = "Please enter your first name"
+            return
+        }
+        guard let annualIncomeText = annualIncome.text else {
+            taxOwing.text = "Please enter your annual income in dollars"
+            return
+        }
                               
-    //convert value into double
-    guard let Income = Double(annualIncomeText) else {
-        return
-    }
+        //convert value into double
+        guard let Income = Double(annualIncomeText) else {
+            taxOwing.text = "Please enter your annual income in dollars"
+            return
+        }
     
         //calculate tax owing
         switch Income{
         case 0...47630:
-            let owing = round(0.15 * Income)
+            let owing = round(0.15 * Income * 10)
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
@@ -70,10 +72,12 @@ class ViewController: UIViewController {
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
         }
-        
-        
-    }
+     }
     
-        
+    // reSet the text
+    func reset(){
+        taxRate.text = ""
+        taxOwing.text = ""
+    }
 
 }
