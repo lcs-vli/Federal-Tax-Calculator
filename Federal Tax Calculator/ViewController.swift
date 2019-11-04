@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         //calculate tax owing
         switch Income{
         case 0...47630:
-            let owing = round(0.15 * Income * 10)
+              let owing = round(0.15 * Income)
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
