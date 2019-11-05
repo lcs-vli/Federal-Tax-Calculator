@@ -44,30 +44,35 @@ class ViewController: UIViewController {
             return
         }
     
-        //calculate tax owing
+        //calculate tax owing and tax rate
         switch Income{
         case 0...47630:
-              let owing = round(0.15 * Income)
+            let owingInt = Int(0.15 * Income * 100)
+            let owing = Double(owingInt)/100
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
         case 47631...95259:
-            let owing = round(0.15 * 47630 + 0.205*(Income - 47630))
+            let owingInt = Int(0.15 * 47630 + 0.205*(Income - 47630)*100)
+            let owing = Double(owingInt)/100
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
         case 95260...147667:
-            let owing = round(0.15 * 47630 + 0.205 * 47629 + 0.26 * (Income - 95259))
+            let owingInt = Int(0.15 * 47630 + 0.205 * 47629 + 0.26 * (Income - 95259)*100)
+            let owing = Double(owingInt)/100
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
         case 147668...210371:
-            let owing = round(0.15 * 47630 + 0.205 * 47629 + 0.26 * 52408 + 0.29 * (Income-147667))
+            let owingInt = Int(0.15 * 47630 + 0.205 * 47629 + 0.26 * 52408 + 0.29 * (Income-147667)*100)
+            let owing = Double(owingInt)/100
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
         default:
-            let owing = round(0.15*47630 + 0.205*47629 + 0.26*52408 + 0.29*62704 + 0.33*(Income-210371))
+            let owingInt = Int(0.15*47630 + 0.205*47629 + 0.26*52408 + 0.29*62704 + 0.33*(Income-210371)*100)
+            let owing = Double(owingInt)/100
             let rateOfTax = round(owing/Income*100)
             taxOwing.text = "\(userName) your federal tax owing is $ \(owing)"
             taxRate.text = "Effective tax rate is: \(rateOfTax)%"
